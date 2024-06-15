@@ -22,7 +22,8 @@ class BuildMacOsResult extends BuildResult {
   @override
   Directory get outputDirectory {
     String buildMode = ReCase(config.mode.name).sentenceCase;
-    String path = 'build/macos/Build/Products/$buildMode';
+    String flavor = config.flavor != null ? '-${config.flavor}' : '';
+    String path = 'build/macos/Build/Products/$buildMode$flavor';
     return Directory(path);
   }
 }
